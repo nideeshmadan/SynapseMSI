@@ -24,13 +24,13 @@ python3 synapse_validate.py sample_data/btc_apr23_normalized_sample.csv
 
 **Sample Output (Normalized Conditions):**
 ```
-📊 SYNAPSE MARKET-STATE INTEGRITY REPORT
-📁 File: sample_data/btc_apr23_normalized_sample.csv
-📈 Rows Analyzed: 10,000
-✅ Valid States: 7,524
-❌ Invalidated States: 2,476
-📉 Invalidation Rate: 24.8%
-🎯 Assessment: MODERATE/LOW temporal degradation
+SYNAPSE MARKET-STATE INTEGRITY REPORT
+File: sample_data/btc_apr23_normalized_sample.csv
+Rows Analyzed: 10,000
+Valid States: 7,524
+Invalidated States: 2,476
+Invalidation Rate: 24.8%
+Assessment: MODERATE/LOW temporal degradation
 ```
 
 ### Stress Regime Comparison
@@ -40,13 +40,13 @@ python3 synapse_validate.py sample_data/btc_apr09_degraded_sample.csv
 
 **Sample Output (Stress Conditions):**
 ```
-📊 SYNAPSE MARKET-STATE INTEGRITY REPORT  
-📁 File: sample_data/btc_apr09_degraded_sample.csv
-📈 Rows Analyzed: 10,000
-✅ Valid States: 18
-❌ Invalidated States: 9,982
-📉 Invalidation Rate: 99.8%
-🎯 Assessment: SEVERE temporal degradation
+SYNAPSE MARKET-STATE INTEGRITY REPORT  
+File: sample_data/btc_apr09_degraded_sample.csv
+Rows Analyzed: 10,000
+Valid States: 18
+Invalidated States: 9,982
+Invalidation Rate: 99.8%
+Assessment: SEVERE temporal degradation
 ```
 
 **Key Insight:** Temporal coherence quality varies dramatically by regime. The **normalized sample** (24.8% invalidation) shows typical baseline behavior, while the **stress sample** (99.8% invalidation) demonstrates extreme temporal breakdown.
@@ -63,7 +63,7 @@ See [`sample_data/README.md`](sample_data/README.md) for detailed regime explana
 
 ## Optional Live Public Demo
 
-**⚠️ May require VPS or non-restricted region** - Binance/Bybit public APIs can return HTTP 451/403 from some locations.
+**Note: May require VPS or non-restricted region** - Binance/Bybit public APIs can return HTTP 451/403 from some locations.
 
 This workflow demonstrates real-time collection and validation but uses collection-time timestamps where venue event timestamps are limited. **The local sample data provides higher-fidelity analysis without network requirements.**
 
@@ -149,18 +149,18 @@ See [`reports/FINDINGS.md`](reports/FINDINGS.md) for detailed empirical analysis
 
 ## What Synapse MSI is NOT
 
-- ❌ **Trading signal** - Validates data quality, does not generate signals
-- ❌ **Investment advice** - Research tool for infrastructure assessment  
-- ❌ **PnL model** - Does not estimate returns or performance
-- ❌ **Execution engine** - Does not place trades or manage orders
-- ❌ **Market-making system** - Does not provide liquidity or pricing
+- **Trading signal** - Validates data quality, does not generate signals
+- **Investment advice** - Research tool for infrastructure assessment  
+- **PnL model** - Does not estimate returns or performance
+- **Execution engine** - Does not place trades or manage orders
+- **Market-making system** - Does not provide liquidity or pricing
 
 ## What Synapse MSI IS
 
-- ✅ **Data quality validator** - Assesses temporal coherence in market data
-- ✅ **Research framework** - Quantifies cross-venue synchronization performance  
-- ✅ **Replay integrity tool** - Validates backtest data temporal assumptions
-- ✅ **Infrastructure diagnostic** - Identifies systematic timing issues
+- **Data quality validator** - Assesses temporal coherence in market data
+- **Research framework** - Quantifies cross-venue synchronization performance  
+- **Replay integrity tool** - Validates backtest data temporal assumptions
+- **Infrastructure diagnostic** - Identifies systematic timing issues
 
 ---
 

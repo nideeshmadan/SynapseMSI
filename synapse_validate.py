@@ -25,7 +25,7 @@ def load_data(path: Path) -> pd.DataFrame:
         try:
             return pd.read_parquet(path)
         except Exception as exc:
-            print("⚠️ pandas/pyarrow failed to read parquet; retrying with DuckDB...")
+            print("Warning: pandas/pyarrow failed to read parquet; retrying with DuckDB...")
             print(f"Original error: {type(exc).__name__}: {exc}")
 
             safe_path = str(path.resolve()).replace("'", "''")
@@ -87,29 +87,29 @@ def write_report(path: Path, df: pd.DataFrame) -> None:
         assessment = "MODERATE/LOW temporal degradation"
 
     print("=" * 60)
-    print("📊 SYNAPSE MARKET-STATE INTEGRITY REPORT")
+    print("SYNAPSE MARKET-STATE INTEGRITY REPORT")
     print("=" * 60)
 
-    print(f"📁 File: {path}")
-    print(f"📈 Rows Analyzed: {total:,}")
+    print(f"File: {path}")
+    print(f"Rows Analyzed: {total:,}")
 
-    print(f"✅ Valid States: {valid:,}")
-    print(f"❌ Invalidated States: {invalid:,}")
+    print(f"Valid States: {valid:,}")
+    print(f"Invalidated States: {invalid:,}")
 
-    print(f"📉 Invalidation Rate: {invalidation_rate:.1%}")
+    print(f"Invalidation Rate: {invalidation_rate:.1%}")
 
-    print("🕐 Temporal Metrics:")
+    print("Temporal Metrics:")
     print(f"   Average Sync Gap: {avg_sync:,.1f}ms")
     print(f"   Median Sync Gap: {med_sync:,.1f}ms")
 
     print(f"   Average Best Pair Age: {avg_age:,.1f}ms")
     print(f"   Median Best Pair Age: {med_age:,.1f}ms")
 
-    print("⚙️ Strict Policy Thresholds:")
+    print("Strict Policy Thresholds:")
     print(f"   Sync Gap: ≤ {STRICT_SYNC_MS}ms")
     print(f"   Best Pair Age: ≤ {STRICT_AGE_MS}ms")
 
-    print(f"🎯 Assessment: {assessment}")
+    print(f"Assessment: {assessment}")
 
     print("=" * 60)
 
@@ -178,7 +178,7 @@ def main() -> None:
 
     path = Path(args.path)
 
-    print(f"📂 Loading data from: {path}")
+    print(f"Loading data from: {path}")
 
     df = load_data(path)
 
@@ -188,7 +188,7 @@ def main() -> None:
 
     write_report(path, validated)
 
-    print("🎉 Validation complete!")
+    print("Validation complete!")
 
 
 if __name__ == "__main__":

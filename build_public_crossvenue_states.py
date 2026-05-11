@@ -65,7 +65,7 @@ def parse_timestamp(value) -> datetime:
             return pd.to_datetime(value_str, utc=True).to_pydatetime()
             
     except Exception as e:
-        print(f"⚠️  Failed to parse timestamp '{value_str}': {e}")
+        print(f"Warning: Failed to parse timestamp '{value_str}': {e}")
         return None
 
 
@@ -105,22 +105,22 @@ def compute_cross_venue_state(group: List[Dict[str, Any]]) -> Dict[str, Any]:
     if best_bid_dt is None:
         best_bid_dt = collection_dt
         best_bid_ts_str = collection_timestamp
-        print(f"⚠️  Using collection timestamp for best_bid from {best_bid_venue}")
+        print(f"Warning: Using collection timestamp for best_bid from {best_bid_venue}")
     
     if best_ask_dt is None:
         best_ask_dt = collection_dt  
         best_ask_ts_str = collection_timestamp
-        print(f"⚠️  Using collection timestamp for best_ask from {best_ask_venue}")
+        print(f"Warning: Using collection timestamp for best_ask from {best_ask_venue}")
     
     # Public REST ticker timestamps are not guaranteed to represent venue-side quote 
     # event time, so future timestamps are clamped to collection time for demo safety
     if best_bid_dt > collection_dt:
-        print(f"⚠️  Clamping future best_bid timestamp from {best_bid_venue} to collection time")
+        print(f"Warning: Clamping future best_bid timestamp from {best_bid_venue} to collection time")
         best_bid_dt = collection_dt
         best_bid_ts_str = collection_timestamp
     
     if best_ask_dt > collection_dt:
-        print(f"⚠️  Clamping future best_ask timestamp from {best_ask_venue} to collection time")
+        print(f"Warning: Clamping future best_ask timestamp from {best_ask_venue} to collection time")
         best_ask_dt = collection_dt
         best_ask_ts_str = collection_timestamp
     
@@ -189,11 +189,11 @@ Output is compatible with synapse_validate.py for temporal coherence analysis.
     output_path = Path(args.output)
     
     if not input_path.exists():
-        print(f"❌ Input file not found: {input_path}")
+        print(f"Error: Input file not found: {input_path}")
         print("Run collect_public_binance_bybit.py first to generate data.")
         return 1
     
-    print("🔄 Synapse Cross-Venue State Builder")
+    print("Synapse Cross-Venue State Builder")
     print("=" * 50)
     print(f"Input: {args.input}")
     print(f"Output: {args.output}")
@@ -204,7 +204,7 @@ Output is compatible with synapse_validate.py for temporal coherence analysis.
     
     try:
         # Read raw snapshots
-        print(f"📂 Reading venue snapshots...")
+        print(f"Reading venue snapshots...")
         
         snapshots = []
         with open(input_path, 'r') as f:
@@ -215,11 +215,11 @@ Output is compatible with synapse_validate.py for temporal coherence analysis.
         print(f"   Loaded {len(snapshots)} venue snapshots")
         
         if not snapshots:
-            print("❌ No snapshots found in input file")
+            print("Error: No snapshots found in input file")
             return 1
         
         # Group by timestamp
-        print(f"🔍 Grouping by collection timestamp...")
+        print(f"Grouping by collection timestamp...")
         
         timestamp_groups = {}
         for snapshot in snapshots:
@@ -231,7 +231,7 @@ Output is compatible with synapse_validate.py for temporal coherence analysis.
         print(f"   Found {len(timestamp_groups)} unique timestamps")
         
         # Build cross-venue states
-        print(f"⚙️ Computing cross-venue states...")
+        print(f"Computing cross-venue states...")
         
         cross_venue_states = []
         for timestamp, group in timestamp_groups.items():
@@ -242,11 +242,11 @@ Output is compatible with synapse_validate.py for temporal coherence analysis.
         print(f"   Generated {len(cross_venue_states)} cross-venue states")
         
         if not cross_venue_states:
-            print("❌ No valid cross-venue states generated")
+            print("Error: No valid cross-venue states generated")
             return 1
         
         # Write output CSV
-        print(f"💾 Writing cross-venue states...")
+        print(f"Writing cross-venue states...")
         
         fieldnames = [
             "timestamp", "instrument",
@@ -267,7 +267,7 @@ Output is compatible with synapse_validate.py for temporal coherence analysis.
         ages = [float(s["best_pair_age_ms"]) for s in cross_venue_states]
         
         print("\n" + "="*50)
-        print("📊 CROSS-VENUE STATE SUMMARY")
+        print("CROSS-VENUE STATE SUMMARY")
         print(f"States generated: {len(cross_venue_states)}")
         print(f"Avg spread: {sum(spreads)/len(spreads):.2f} bps")
         print(f"Avg sync gap: {sum(sync_gaps)/len(sync_gaps):.1f}ms")
@@ -277,7 +277,7 @@ Output is compatible with synapse_validate.py for temporal coherence analysis.
         print(f"\nNext step: python3 synapse_validate.py {args.output}")
         
     except Exception as e:
-        print(f"❌ Processing failed: {e}")
+        print(f"Error: Processing failed: {e}")
         return 1
     
     return 0

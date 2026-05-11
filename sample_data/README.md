@@ -65,16 +65,16 @@ Both formats contain identical data. Use CSV for inspection, Parquet for perform
 ## Comparison with Live Demo
 
 **Sample Data (No Network Required):**
-- ✅ Institutional research quality with preserved venue-side timestamps
-- ✅ Deterministic replay-oriented reconstruction
-- ✅ High-fidelity temporal analysis
-- ✅ No VPS or exchange API access needed
+- Institutional research quality with preserved venue-side timestamps
+- Deterministic replay-oriented reconstruction
+- High-fidelity temporal analysis
+- No VPS or exchange API access needed
 
 **Live Public Demo (May Require VPS):**
-- ⚠️ REST polling with collection-time timestamp fallbacks  
-- ⚠️ Limited temporal precision for demonstration purposes
-- ⚠️ Binance/Bybit APIs may return HTTP 451/403 from restricted regions
-- ⚠️ Not a replacement for canonical reconstruction
+- REST polling with collection-time timestamp fallbacks  
+- Limited temporal precision for demonstration purposes
+- Binance/Bybit APIs may return HTTP 451/403 from restricted regions
+- Not a replacement for canonical reconstruction
 
 ## Research Context
 

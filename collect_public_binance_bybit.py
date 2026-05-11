@@ -41,7 +41,7 @@ def fetch_binance_ticker(symbol: str) -> Optional[Dict[str, Any]]:
             "venue_timestamp": data.get("time")  # May not be available
         }
     except Exception as e:
-        print(f"❌ Binance fetch failed: {e}")
+        print(f"Error: Binance fetch failed: {e}")
         return None
 
 
@@ -56,12 +56,12 @@ def fetch_bybit_ticker(symbol: str) -> Optional[Dict[str, Any]]:
         
         data = response.json()
         if data.get("retCode") != 0:
-            print(f"❌ Bybit API error: {data.get('retMsg')}")
+            print(f"Error: Bybit API error: {data.get('retMsg')}")
             return None
             
         tickers = data.get("result", {}).get("list", [])
         if not tickers:
-            print(f"❌ No Bybit ticker data for {symbol}")
+            print(f"Error: No Bybit ticker data for {symbol}")
             return None
             
         ticker = tickers[0]
@@ -72,7 +72,7 @@ def fetch_bybit_ticker(symbol: str) -> Optional[Dict[str, Any]]:
             "venue_timestamp": None  # Not available in this endpoint
         }
     except Exception as e:
-        print(f"❌ Bybit fetch failed: {e}")
+        print(f"Error: Bybit fetch failed: {e}")
         return None
 
 
@@ -81,7 +81,7 @@ def collect_snapshot(symbol: str) -> Dict[str, Any]:
     collection_time = datetime.now(timezone.utc)
     timestamp_iso = collection_time.isoformat()
     
-    print(f"⏰ {timestamp_iso} - Collecting {symbol}...")
+    print(f"Timestamp: {timestamp_iso} - Collecting {symbol}...")
     
     snapshots = []
     
@@ -97,7 +97,7 @@ def collect_snapshot(symbol: str) -> Dict[str, Any]:
             "best_bid_timestamp": binance_data.get("venue_timestamp") or timestamp_iso,
             "best_ask_timestamp": binance_data.get("venue_timestamp") or timestamp_iso
         })
-        print(f"   ✅ Binance: {binance_data['best_bid']:.2f} / {binance_data['best_ask']:.2f}")
+        print(f"   Binance: {binance_data['best_bid']:.2f} / {binance_data['best_ask']:.2f}")
     
     # Fetch Bybit
     bybit_data = fetch_bybit_ticker(symbol)
@@ -111,10 +111,10 @@ def collect_snapshot(symbol: str) -> Dict[str, Any]:
             "best_bid_timestamp": bybit_data.get("venue_timestamp") or timestamp_iso,
             "best_ask_timestamp": bybit_data.get("venue_timestamp") or timestamp_iso
         })
-        print(f"   ✅ Bybit: {bybit_data['best_bid']:.2f} / {bybit_data['best_ask']:.2f}")
+        print(f"   Bybit: {bybit_data['best_bid']:.2f} / {bybit_data['best_ask']:.2f}")
     
     if not snapshots:
-        print("   ⚠️ No data collected this cycle")
+        print("   Warning: No data collected this cycle")
     
     return {
         "timestamp": timestamp_iso,
@@ -163,7 +163,7 @@ preserved venue-side timestamps for precise temporal coherence validation.
     output_path = Path(args.out)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     
-    print("🚀 Synapse Public Data Collector")
+    print("Synapse Public Data Collector")
     print("=" * 50)
     print(f"Symbol: {args.symbol}")
     print(f"Duration: {args.seconds} seconds")
@@ -213,17 +213,17 @@ preserved venue-side timestamps for precise temporal coherence validation.
                 
                 remaining = int(end_time - time.time())
                 if remaining > 0 and total_cycles % 10 == 0:
-                    print(f"📊 Progress: {total_snapshots} snapshots, {remaining}s remaining")
+                    print(f"Progress: {total_snapshots} snapshots, {remaining}s remaining")
     
     except KeyboardInterrupt:
-        print("\n🛑 Collection stopped by user")
+        print("\nCollection stopped by user")
     
     except Exception as e:
-        print(f"\n❌ Collection failed: {e}")
+        print(f"\nError: Collection failed: {e}")
         return 1
     
     print("\n" + "="*50)
-    print("📊 COLLECTION COMPLETE")
+    print("COLLECTION COMPLETE")
     print(f"Total cycles: {total_cycles}")
     print(f"Total snapshots: {total_snapshots}")
     print(f"Average snapshots per cycle: {total_snapshots/total_cycles:.1f}")
