@@ -4,7 +4,7 @@
 
 Synapse reconstructed 2,329,481 BTC/ETH perpetual futures market states across Binance, Bybit, OKX, and Hyperliquid using deterministic reconstruction and temporal alignment, venue freshness validation, and strict market-state integrity policies.
 
-The core finding is that observed cross-venue top-of-book spreads are not uniformly reliable. Across the current research-preview dataset, 1,277,377 spreads were invalidated under strict temporal-coherence rules, producing a 47.72% average market-state invalidation rate.
+The core finding is that observed cross-venue top-of-book spreads are not uniformly reliable. Across the current research-preview dataset, 1,277,377 market states were invalidated under strict temporal-coherence rules, producing a 47.72% average market-state invalidation rate.
 
 This is not an alpha claim, execution recommendation, or allegation of venue misconduct. It is a market-data integrity result: many apparent cross-venue states fail synchronization and freshness validation once reconstructed deterministically.
 
@@ -14,7 +14,7 @@ This is not an alpha claim, execution recommendation, or allegation of venue mis
 - 15 daily integrity releases
 - Instruments: BTCUSDT_PERP, ETHUSDT_PERP
 - Venues: Binance, Bybit, OKX, Hyperliquid
-- 1,277,377 invalidated spreads
+- 1,277,377 invalidated market states
 - 47.72% average market-state invalidation rate
 
 ## Core Finding
