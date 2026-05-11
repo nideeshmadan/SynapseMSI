@@ -14,17 +14,34 @@ Cross-venue arbitrage opportunities may be phantom if venues report quotes at ma
 
 ## Local Quickstart (No VPS Required)
 
-Validate market-state integrity using included sample data:
+Validate market-state integrity using included sample data. **No API keys, VPS, or exchange access required.**
 
+### Normalized Baseline Regime
 ```bash
 pip3 install -r requirements.txt
-python3 synapse_validate.py sample_data/btc_apr09_sample.csv
+python3 synapse_validate.py sample_data/btc_apr23_normalized_sample.csv
 ```
 
-**Sample Output (Stress Regime):**
+**Sample Output (Normalized Conditions):**
 ```
 📊 SYNAPSE MARKET-STATE INTEGRITY REPORT
-📁 File: sample_data/btc_apr09_sample.csv
+📁 File: sample_data/btc_apr23_normalized_sample.csv
+📈 Rows Analyzed: 10,000
+✅ Valid States: 7,524
+❌ Invalidated States: 2,476
+📉 Invalidation Rate: 24.8%
+🎯 Assessment: MODERATE/LOW temporal degradation
+```
+
+### Stress Regime Comparison
+```bash
+python3 synapse_validate.py sample_data/btc_apr09_degraded_sample.csv
+```
+
+**Sample Output (Stress Conditions):**
+```
+📊 SYNAPSE MARKET-STATE INTEGRITY REPORT  
+📁 File: sample_data/btc_apr09_degraded_sample.csv
 📈 Rows Analyzed: 10,000
 ✅ Valid States: 18
 ❌ Invalidated States: 9,982
@@ -32,12 +49,13 @@ python3 synapse_validate.py sample_data/btc_apr09_sample.csv
 🎯 Assessment: SEVERE temporal degradation
 ```
 
-This validates 10,000 reconstructed BTCUSDT perpetual market states from a **stress regime period** (April 9, 2026) across Binance, Bybit, OKX, and Hyperliquid, demonstrating severe temporal breakdown behavior.
+**Key Insight:** Temporal coherence quality varies dramatically by regime. The **normalized sample** (24.8% invalidation) shows typical baseline behavior, while the **stress sample** (99.8% invalidation) demonstrates extreme temporal breakdown.
 
-**Multiple Sample Regimes Available:**
-- **Stress samples** (`btc_apr09_sample.csv`, `eth_apr09_sample.csv`): ~99.8% invalidation, extreme temporal misalignment
-- **Normalized baseline samples**: *Coming soon* - ~25-30% invalidation typical of stable conditions  
-- **Live public demo**: Optional REST collection workflow (may require VPS)
+**Available Sample Regimes:**
+- **Normalized**: `btc_apr23_normalized_sample.csv` - Baseline conditions (~25% invalidation)
+- **Degraded**: `btc_apr09_degraded_sample.csv` - Stress conditions (~99% invalidation)  
+- **Legacy**: Original samples (`btc_apr09_sample.csv`, `eth_apr09_sample.csv`)
+- **Live Demo**: Optional REST workflow (may require VPS)
 
 See [`sample_data/README.md`](sample_data/README.md) for detailed regime explanations.
 

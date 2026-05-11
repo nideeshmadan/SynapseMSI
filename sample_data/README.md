@@ -4,9 +4,21 @@ This directory contains institutional research datasets demonstrating different 
 
 ## Sample Regimes
 
+### Normalized Baseline Samples
+- **`btc_apr23_normalized_sample.csv`** - BTCUSDT perpetual states from April 23, 2026
+
+This sample represents **normalized baseline behavior** with manageable temporal characteristics:
+- ~24.8% invalidation rate under strict policy constraints
+- Moderate sync gaps (median ~256ms)
+- Controlled quote age violations  
+- Demonstrates typical cross-venue temporal performance
+
+**Use case**: Understanding normal operational conditions and baseline temporal coherence expectations.
+
 ### Degraded Stress Samples
-- **`btc_apr09_sample.csv`** - BTCUSDT perpetual states from April 9, 2026
-- **`eth_apr09_sample.csv`** - ETHUSDT perpetual states from April 9, 2026
+- **`btc_apr09_degraded_sample.csv`** - BTCUSDT perpetual states from April 9, 2026
+- **`btc_apr09_sample.csv`** - Original degraded sample (legacy)
+- **`eth_apr09_sample.csv`** - ETHUSDT degraded sample
 
 These samples represent **stress-regime behavior** with severe temporal degradation:
 - ~99.8% invalidation rates under strict policy constraints
@@ -15,9 +27,6 @@ These samples represent **stress-regime behavior** with severe temporal degradat
 - Demonstrates worst-case temporal misalignment scenarios
 
 **Use case**: Understanding how cross-venue market states behave during extreme temporal stress periods.
-
-### Normalized Baseline Samples
-*Coming soon: Additional samples from normalized temporal regimes showing ~25-30% invalidation rates typical of baseline conditions.*
 
 ## Data Format
 
@@ -36,11 +45,16 @@ timestamp,instrument,sync_gap_ms,best_pair_age_ms,[additional fields]
 
 ### Local Validation (No VPS Required)
 ```bash
-# Validate stress-regime behavior
-python3 synapse_validate.py sample_data/btc_apr09_sample.csv
+# Validate normalized baseline behavior (recommended first)
+python3 synapse_validate.py sample_data/btc_apr23_normalized_sample.csv
+# Expected output: ~24.8% invalidation (moderate/low degradation)
 
+# Compare with stress-regime behavior  
+python3 synapse_validate.py sample_data/btc_apr09_degraded_sample.csv
 # Expected output: ~99.8% invalidation (severe temporal degradation)
 ```
+
+**Key Comparison**: The dramatic difference (24.8% vs 99.8% invalidation) demonstrates the regime-dependent nature of cross-venue temporal coherence.
 
 ### File Formats
 - **`.csv`** - Human-readable, compatible with spreadsheets
