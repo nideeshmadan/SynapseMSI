@@ -1,0 +1,1 @@
+timestamp,instrument,best_bid,best_bid_venue,best_bid_timestamp,best_ask,best_ask_venue,best_ask_timestamp,observed_cross_venue_spread_bps,sync_gap_ms,best_pair_age_ms,synapse_valid

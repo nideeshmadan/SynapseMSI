@@ -1,0 +1,4 @@
+timestamp,instrument,best_bid,best_bid_venue,best_bid_timestamp,best_ask,best_ask_venue,best_ask_timestamp,observed_cross_venue_spread_bps,sync_gap_ms,best_pair_age_ms
+2026-05-11T16:00:00.000Z,BTCUSDT_PERP,67890.12,binance,2024-05-11T16:00:00+00:00,67892.45,binance,2026-05-11T16:00:00+00:00,0.34,63072000000.0,63072000000.0
+2026-05-11T16:00:01.000Z,BTCUSDT_PERP,67891.34,binance,2024-05-11T16:00:01+00:00,67893.67,binance,2026-05-11T16:00:01+00:00,0.34,63072000000.0,63072000000.0
+2026-05-11T16:00:02.000Z,BTCUSDT_PERP,67892.11,binance,2026-05-11T16:00:02+00:00,67893.99,bybit,2026-05-11T16:00:02+00:00,0.28,0.0,0.0
