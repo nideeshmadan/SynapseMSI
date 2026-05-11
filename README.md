@@ -21,7 +21,7 @@ pip3 install -r requirements.txt
 python3 synapse_validate.py sample_data/btc_apr09_sample.csv
 ```
 
-**Sample Output:**
+**Sample Output (Stress Regime):**
 ```
 📊 SYNAPSE MARKET-STATE INTEGRITY REPORT
 📁 File: sample_data/btc_apr09_sample.csv
@@ -32,13 +32,22 @@ python3 synapse_validate.py sample_data/btc_apr09_sample.csv
 🎯 Assessment: SEVERE temporal degradation
 ```
 
-This validates 10,000 reconstructed BTCUSDT perpetual market states from April 2026 across Binance, Bybit, OKX, and Hyperliquid.
+This validates 10,000 reconstructed BTCUSDT perpetual market states from a **stress regime period** (April 9, 2026) across Binance, Bybit, OKX, and Hyperliquid, demonstrating severe temporal breakdown behavior.
+
+**Multiple Sample Regimes Available:**
+- **Stress samples** (`btc_apr09_sample.csv`, `eth_apr09_sample.csv`): ~99.8% invalidation, extreme temporal misalignment
+- **Normalized baseline samples**: *Coming soon* - ~25-30% invalidation typical of stable conditions  
+- **Live public demo**: Optional REST collection workflow (may require VPS)
+
+See [`sample_data/README.md`](sample_data/README.md) for detailed regime explanations.
 
 ---
 
 ## Optional Live Public Demo
 
 **⚠️ May require VPS or non-restricted region** - Binance/Bybit public APIs can return HTTP 451/403 from some locations.
+
+This workflow demonstrates real-time collection and validation but uses collection-time timestamps where venue event timestamps are limited. **The local sample data provides higher-fidelity analysis without network requirements.**
 
 ### Step 1: Collect Live Data
 ```bash
@@ -74,13 +83,17 @@ States violating either constraint are marked as **temporally invalidated** and 
 
 ## Methodology Note
 
-**Local Quickstart** uses institutional research data with preserved venue-side timestamps from Synapse canonical reconstruction archive. This provides deterministic replay-oriented reconstruction and high-fidelity temporal analysis.
+**Local Sample Data** uses institutional research data with preserved venue-side timestamps from Synapse canonical reconstruction archive. This provides deterministic replay-oriented reconstruction and high-fidelity temporal analysis.
+
+- **Stress regime samples**: Demonstrate extreme temporal breakdown (>99% invalidation)
+- **Normalized baseline samples**: Show typical temporal behavior (~25-30% invalidation)  
+- **No network access required**: Complete validation workflow works offline
 
 **Live Public Demo** uses public REST polling with collection-time timestamps where venue event timestamps are limited. This is a workflow demonstration showing MSI validation capabilities, **not a replacement for canonical websocket/event-driven reconstruction**.
 
 Key differences:
-- **Canonical**: WebSocket events, high-resolution venue-side timestamps, deterministic replay
-- **Public REST**: Polling tickers, collection-time fallbacks, limited temporal precision, demonstration purposes
+- **Sample Data**: WebSocket events, high-resolution venue-side timestamps, deterministic replay, no VPS needed
+- **Live Demo**: REST polling, collection-time fallbacks, limited precision, may require VPS/unrestricted region
 
 ---
 
@@ -103,12 +116,14 @@ Key differences:
 
 ## Research Findings
 
-Analysis of 943,102 cross-venue market states reveals:
+Analysis of 943,102 cross-venue market states reveals **regime-dependent temporal coherence**:
 
-- **24.6%** invalidation under normalized conditions
-- **95.0%** invalidation during degraded temporal regimes  
+- **24.6%** invalidation under normalized baseline conditions
+- **95.0%** invalidation during degraded temporal stress regimes  
 - **35.9%** median persistence contraction under strict coherence validation
-- **$192 phantom spread episodes** observed during extreme misalignment
+- **$192 phantom spread episodes** observed during extreme misalignment periods
+
+**Key insight**: Temporal coherence quality varies dramatically by regime. The included samples demonstrate both stress-case behavior (99.8% invalidation) and the research baseline range.
 
 See [`reports/FINDINGS.md`](reports/FINDINGS.md) for detailed empirical analysis.
 
