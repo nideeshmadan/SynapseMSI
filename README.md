@@ -65,7 +65,7 @@ Synapse applies strict constraints for cross-venue state validity:
 - **`best_pair_age_ms ≤ 1000`** - Quote freshness from collection time
 
 States violating either constraint are marked as **temporally invalidated** and unsuitable for:
-- Execution simulation
+- Replay and execution-simulation input validation
 - Backtest replay
 - Risk analysis
 - Performance attribution
@@ -74,12 +74,12 @@ States violating either constraint are marked as **temporally invalidated** and 
 
 ## Methodology Note
 
-**Local Quickstart** uses institutional research data with preserved venue-side timestamps from Synapse canonical reconstruction archive. This provides deterministic replay semantics and precise temporal analysis.
+**Local Quickstart** uses institutional research data with preserved venue-side timestamps from Synapse canonical reconstruction archive. This provides deterministic replay-oriented reconstruction and high-fidelity temporal analysis.
 
 **Live Public Demo** uses public REST polling with collection-time timestamps where venue event timestamps are limited. This is a workflow demonstration showing MSI validation capabilities, **not a replacement for canonical websocket/event-driven reconstruction**.
 
 Key differences:
-- **Canonical**: WebSocket events, venue-side timestamps, microsecond precision, deterministic replay
+- **Canonical**: WebSocket events, high-resolution venue-side timestamps, deterministic replay
 - **Public REST**: Polling tickers, collection-time fallbacks, limited temporal precision, demonstration purposes
 
 ---
@@ -108,7 +108,7 @@ Analysis of 943,102 cross-venue market states reveals:
 - **24.6%** invalidation under normalized conditions
 - **95.0%** invalidation during degraded temporal regimes  
 - **35.9%** median persistence contraction under strict coherence validation
-- **$192 basis point** phantom spreads observed during extreme misalignment
+- **$192 phantom spread episodes** observed during extreme misalignment
 
 See [`reports/FINDINGS.md`](reports/FINDINGS.md) for detailed empirical analysis.
 
