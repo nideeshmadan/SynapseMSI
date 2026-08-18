@@ -1,0 +1,115 @@
+{
+  "canonical_consensus_methodology_version": "canonical_snapshot_consensus_v1",
+  "comparability_eligibility": "excluded_fail_closed",
+  "comparability_reason_code": "unknown_assignment",
+  "comparison_scope": "artifact",
+  "consensus_mark": "1685.93",
+  "consensus_venues_used": [
+    "binance",
+    "bybit",
+    "hyperliquid",
+    "okx"
+  ],
+  "detection_version": "operational_episode_v1",
+  "disagreement_score": "11.0",
+  "excluded_venues": {},
+  "included_venues": [
+    "binance",
+    "bybit",
+    "hyperliquid",
+    "okx"
+  ],
+  "instrument": "ETHUSDT_PERP",
+  "investigation_id": "87a9f4c7a3bde4cf70d1c0bc",
+  "methodology_version": "canonical_snapshot_consensus_v1",
+  "provenance_classification": {
+    "acquisition_regime_id": "unknown.insufficient_provenance",
+    "assignment_method": "unknown",
+    "assignment_status": "unknown",
+    "comparison_group": "unknown",
+    "linkage_method": "episode_sidecar_aggregation",
+    "linkage_status": "insufficient_raw_lineage",
+    "linked_regime_ids": [
+      "unknown.insufficient_provenance"
+    ],
+    "primary_regime_id": null,
+    "sidecar_comparability_eligibility": "excluded_fail_closed",
+    "sidecar_comparability_reason_code": "unknown_assignment",
+    "spans_multiple_regimes": false,
+    "unresolved_reason": "missing_acquisition_metadata"
+  },
+  "reconstruction_version": "l1_canonical_v1",
+  "source": {
+    "archived_consensus_mark": "1685.93",
+    "archived_peak_disagreement_score": "11.0",
+    "episode_id": "op_stale_000012",
+    "episode_type": "venue_staleness",
+    "kind": "showcase_peak_snapshot_archive",
+    "peak_scan_timestamp": "2026-06-13T22:00:03.418302Z",
+    "showcase_manifest": "reports/showcase/investigation_op_stale_000012_manifest.json",
+    "showcase_source_snapshot_paths": [
+      "archives/snapshots/date=2026-06-13/instrument=ETHUSDT_PERP/part-seq0002331286-0002331397.ndjson.gz",
+      "archives/snapshots/date=2026-06-13/instrument=ETHUSDT_PERP/part-seq0002331405-0002331725.ndjson.gz",
+      "archives/snapshots/date=2026-06-13/instrument=ETHUSDT_PERP/part-seq0002331730-0002332077.ndjson.gz"
+    ],
+    "source_parquet": "reports/showcase/investigation_op_stale_000012_snapshots.parquet",
+    "source_parquet_sha256": "39160fd4f66a26c007daaaa688f720f5866264e9b67576d9d62888b92ff25908"
+  },
+  "venue_table": [
+    {
+      "acquisition_regime_id": "unknown.insufficient_provenance",
+      "acquisition_status": "unknown",
+      "canonical_timestamp": "2026-06-13T22:00:03.418302Z",
+      "canonical_value": "1684.08",
+      "consensus_input_value": "1684.08",
+      "disagreement_bps": "11.0",
+      "exclusion_reason": null,
+      "included": true,
+      "order_position": 1,
+      "source_observation_timestamp": "2026-06-13T22:00:03.418302Z",
+      "venue": "binance"
+    },
+    {
+      "acquisition_regime_id": "unknown.insufficient_provenance",
+      "acquisition_status": "unknown",
+      "canonical_timestamp": "2026-06-13T22:00:03.418302Z",
+      "canonical_value": "1685.71",
+      "consensus_input_value": "1685.71",
+      "disagreement_bps": "1.3",
+      "exclusion_reason": null,
+      "included": true,
+      "order_position": 2,
+      "source_observation_timestamp": "2026-06-13T21:51:23.249226Z",
+      "venue": "bybit"
+    },
+    {
+      "acquisition_regime_id": "unknown.insufficient_provenance",
+      "acquisition_status": "unknown",
+      "canonical_timestamp": "2026-06-13T22:00:03.418302Z",
+      "canonical_value": "1686.15",
+      "consensus_input_value": "1686.15",
+      "disagreement_bps": "1.3",
+      "exclusion_reason": null,
+      "included": true,
+      "order_position": 3,
+      "source_observation_timestamp": "2026-06-13T21:50:33.064624Z",
+      "venue": "hyperliquid"
+    },
+    {
+      "acquisition_regime_id": "unknown.insufficient_provenance",
+      "acquisition_status": "unknown",
+      "canonical_timestamp": "2026-06-13T22:00:03.418302Z",
+      "canonical_value": "1686.205",
+      "consensus_input_value": "1686.205",
+      "disagreement_bps": "1.6",
+      "exclusion_reason": null,
+      "included": true,
+      "order_position": 4,
+      "source_observation_timestamp": "2026-06-13T21:50:22.879049Z",
+      "venue": "okx"
+    }
+  ],
+  "window_end": "2026-06-13T22:00:16.165986Z",
+  "window_start": "2026-06-13T21:51:23.249226Z",
+  "working_provenance_registry_version": "acquisition_provenance_working_registry_v1"
+}

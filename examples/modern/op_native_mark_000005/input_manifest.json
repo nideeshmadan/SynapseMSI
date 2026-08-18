@@ -1,0 +1,19 @@
+{
+  "acquisition_regime_evidence": {
+    "path": "../../../evidence/acquisition_regime_fixture_registry_v1.json",
+    "registry_content_version": "2026-07-30.modern_fixtures.v1",
+    "registry_id": "acquisition_regime_fixture_registry_v1",
+    "sha256": "08e2f1017fd206a62c0728a4f5e17c775f544e5d7e6bb86c54f5b9fe8962ab79"
+  },
+  "episode_id": "op_native_mark_000005",
+  "investigation_sha256": "23145ff1ceaa40c43b40d1a04a63974304b8ee90c7e28647c8318e984418fbe9",
+  "observations_parquet_path": "observations.parquet",
+  "observations_parquet_sha256": "15fb8d52e5f51a4ebcdf08726cf157334155565d15b9d6edc3f16d9414653226",
+  "observations_path": "observations.jsonl",
+  "observations_row_count": 4,
+  "observations_sha256": "00b8b76f398eebbf07b3459946f58cc9fde6a8c421ef1a452948d64e87c13063",
+  "provenance_sha256": "74e45c1103150bf3422bd17e4ca924954e06ec1ab13c2497ea6ad031b3398a9f",
+  "provenance_sidecar_path": "provenance.json",
+  "published_investigation_path": "investigation.json",
+  "worked_example": true
+}

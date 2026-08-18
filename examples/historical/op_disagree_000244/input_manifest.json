@@ -1,0 +1,21 @@
+{
+  "episode_id": "op_disagree_000244",
+  "investigation_sha256": "2d6961f1e37773a2a995266f7675b8f30ce39ff44093e7958b28d307df3259b7",
+  "methodology_refs": [
+    "specifications/reconstruction-standard.md#3-canonical-observation-selection",
+    "specifications/reconstruction-standard.md#4-consensus-methodology",
+    "specifications/reconstruction-standard.md#5-disagreement-methodology",
+    "specifications/reconstruction-standard.md#7-deterministic-reproducibility",
+    "specifications/reconstruction-standard.md#9-independent-reproduction-requirements",
+    "specifications/provenance-standard.md"
+  ],
+  "note": "Historical acquisition lineage is unknown/insufficient; do not treat as authoritative WS provenance.",
+  "observations_parquet_path": "observations.parquet",
+  "observations_parquet_sha256": "7579e25f3f00f3023fc44f1d816fb7bc9041efa42d8b24a6b91a1688c2ae2e5b",
+  "observations_path": "observations.jsonl",
+  "observations_row_count": 4,
+  "observations_sha256": "d69e990d6dc988052928bd2224a666f66d757a65b27ec0ddd5ab0d776e96c51f",
+  "provenance_sha256": "6633db20d21fe78b8dc637a4f3df7943067e0892a0fcb2d4a1c1a076a12539c8",
+  "provenance_sidecar_path": "provenance.json",
+  "published_investigation_path": "investigation.json"
+}

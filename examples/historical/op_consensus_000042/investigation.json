@@ -1,0 +1,115 @@
+{
+  "canonical_consensus_methodology_version": "canonical_snapshot_consensus_v1",
+  "comparability_eligibility": "excluded_fail_closed",
+  "comparability_reason_code": "unknown_assignment",
+  "comparison_scope": "artifact",
+  "consensus_mark": "59356.93",
+  "consensus_venues_used": [
+    "binance",
+    "bybit",
+    "hyperliquid",
+    "okx"
+  ],
+  "detection_version": "operational_episode_v1",
+  "disagreement_score": "85.1",
+  "excluded_venues": {},
+  "included_venues": [
+    "binance",
+    "bybit",
+    "hyperliquid",
+    "okx"
+  ],
+  "instrument": "BTCUSDT_PERP",
+  "investigation_id": "72005bfeebb0112dbd61d634",
+  "methodology_version": "canonical_snapshot_consensus_v1",
+  "provenance_classification": {
+    "acquisition_regime_id": "unknown.insufficient_provenance",
+    "assignment_method": "unknown",
+    "assignment_status": "unknown",
+    "comparison_group": "unknown",
+    "linkage_method": "episode_sidecar_aggregation",
+    "linkage_status": "insufficient_raw_lineage",
+    "linked_regime_ids": [
+      "unknown.insufficient_provenance"
+    ],
+    "primary_regime_id": null,
+    "sidecar_comparability_eligibility": "excluded_fail_closed",
+    "sidecar_comparability_reason_code": "unknown_assignment",
+    "spans_multiple_regimes": false,
+    "unresolved_reason": "missing_acquisition_metadata"
+  },
+  "reconstruction_version": "l1_canonical_v1",
+  "source": {
+    "archived_consensus_mark": "59356.93",
+    "archived_peak_disagreement_score": "85.1",
+    "episode_id": "op_consensus_000042",
+    "episode_type": "consensus_quality",
+    "kind": "showcase_peak_snapshot_archive",
+    "peak_scan_timestamp": "2026-07-01T13:52:14.605494Z",
+    "showcase_manifest": "reports/showcase/investigation_op_consensus_000042/investigation_op_consensus_000042_manifest.json",
+    "showcase_source_snapshot_paths": [
+      "archives/snapshots/date=2026-07-01/instrument=BTCUSDT_PERP/part-seq0002559383-0002559411.ndjson.gz",
+      "archives/snapshots/date=2026-07-01/instrument=BTCUSDT_PERP/part-seq0002559412-0002559471.ndjson.gz",
+      "archives/snapshots/date=2026-07-01/instrument=BTCUSDT_PERP/part-seq0002559472-0002559497.ndjson.gz"
+    ],
+    "source_parquet": "reports/showcase/investigation_op_consensus_000042/investigation_op_consensus_000042_snapshots.parquet",
+    "source_parquet_sha256": "aaea440ac189636aa04e430c9ab8503e8c1a3ab399c1f2c1b346cf3f2bb84c2a"
+  },
+  "venue_table": [
+    {
+      "acquisition_regime_id": "unknown.insufficient_provenance",
+      "acquisition_status": "unknown",
+      "canonical_timestamp": "2026-07-01T13:52:14.605494Z",
+      "canonical_value": "59357.6",
+      "consensus_input_value": "59357.6",
+      "disagreement_bps": "0.1",
+      "exclusion_reason": null,
+      "included": true,
+      "order_position": 1,
+      "source_observation_timestamp": "2026-07-01T13:52:13.071823Z",
+      "venue": "binance"
+    },
+    {
+      "acquisition_regime_id": "unknown.insufficient_provenance",
+      "acquisition_status": "unknown",
+      "canonical_timestamp": "2026-07-01T13:52:14.605494Z",
+      "canonical_value": "59370.5",
+      "consensus_input_value": "59370.5",
+      "disagreement_bps": "2.3",
+      "exclusion_reason": null,
+      "included": true,
+      "order_position": 2,
+      "source_observation_timestamp": "2026-07-01T13:52:14.605494Z",
+      "venue": "bybit"
+    },
+    {
+      "acquisition_regime_id": "unknown.insufficient_provenance",
+      "acquisition_status": "unknown",
+      "canonical_timestamp": "2026-07-01T13:52:14.605494Z",
+      "canonical_value": "58852.0",
+      "consensus_input_value": "58852.0",
+      "disagreement_bps": "85.1",
+      "exclusion_reason": null,
+      "included": true,
+      "order_position": 3,
+      "source_observation_timestamp": "2026-07-01T13:52:08.640296Z",
+      "venue": "hyperliquid"
+    },
+    {
+      "acquisition_regime_id": "unknown.insufficient_provenance",
+      "acquisition_status": "unknown",
+      "canonical_timestamp": "2026-07-01T13:52:14.605494Z",
+      "canonical_value": "59356.25",
+      "consensus_input_value": "59356.25",
+      "disagreement_bps": "0.1",
+      "exclusion_reason": null,
+      "included": true,
+      "order_position": 4,
+      "source_observation_timestamp": "2026-07-01T13:52:12.738157Z",
+      "venue": "okx"
+    }
+  ],
+  "window_end": "2026-07-01T13:53:40.703398Z",
+  "window_start": "2026-07-01T13:38:22.549111Z",
+  "working_provenance_registry_version": "acquisition_provenance_working_registry_v1"
+}

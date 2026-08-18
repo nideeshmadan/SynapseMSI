@@ -1,0 +1,132 @@
+{
+  "canonical_consensus_methodology_version": "canonical_snapshot_consensus_v1",
+  "comparability_eligibility": "comparable_after_partition",
+  "comparability_reason_code": "mixed_regime_requires_partition",
+  "comparison_scope": "artifact",
+  "consensus_mark": "1939.61",
+  "consensus_venues_used": [
+    "binance",
+    "bybit",
+    "hyperliquid",
+    "okx"
+  ],
+  "detection_version": "operational_episode_v1",
+  "disagreement_score": "1.8",
+  "excluded_venues": {
+    "hyperliquid": "missing_or_zero_mark_price",
+    "okx": "missing_or_zero_mark_price"
+  },
+  "freshness_episode": {
+    "adoption_scan_timestamp": "2026-07-21T08:55:50.342003Z",
+    "affected_venue": "binance",
+    "duration_seconds": 289.155421,
+    "enter_threshold_seconds": 60.0,
+    "episode_end": "2026-07-21T08:56:17.234571Z",
+    "episode_start": "2026-07-21T08:51:28.079150Z",
+    "packaged_snapshot_count": 13,
+    "peak_observation_age_seconds": 321.933973,
+    "peak_scan_timestamp": "2026-07-21T08:55:48.911654Z",
+    "peak_sequence": 3003277,
+    "pre_entry_scan_timestamp": "2026-07-21T08:51:26.245940Z",
+    "recovery_qualified": true,
+    "recovery_snapshot_count": 5,
+    "recovery_snapshots_required": 5,
+    "recovery_start": "2026-07-21T08:56:10.314291Z",
+    "threshold_crossed": true
+  },
+  "included_venues": [
+    "binance",
+    "bybit"
+  ],
+  "instrument": "ETHUSDT_PERP",
+  "investigation_id": "8ba94e2aa3607e2bfb7dbc41",
+  "methodology_version": "canonical_snapshot_consensus_v1",
+  "provenance_classification": {
+    "acquisition_regime_id": "binance.hybrid_book_reference.native_mark",
+    "assignment_method": "row_metadata_with_payload",
+    "assignment_status": "provisional",
+    "comparison_group": "mixed",
+    "linkage_method": "episode_sidecar_aggregation",
+    "linkage_status": "derived_from_preserved_lineage",
+    "linked_regime_ids": [
+      "binance.hybrid_book_reference.native_mark",
+      "bybit.native_ws_ticker.markPrice",
+      "hyperliquid.ws_top_of_book.l1_only",
+      "okx.ws_top_of_book.conditional_native_mark"
+    ],
+    "primary_regime_id": null,
+    "spans_multiple_regimes": true,
+    "unresolved_reason": "multi_regime_investigation"
+  },
+  "reconstruction_version": "l1_canonical_v1",
+  "source": {
+    "affected_venue": "binance",
+    "archive_references": [
+      "archives/snapshots/date=2026-07-21/instrument=ETHUSDT_PERP/",
+      "examples/modern/op_stale_014639/observations.jsonl"
+    ],
+    "episode_id": "op_stale_014639",
+    "episode_type": "venue_staleness",
+    "kind": "modern_websocket_archived_observations",
+    "max_age_seconds": 321.933973,
+    "note": "Modern bounded temporal freshness example. Detection recomputes scan_timestamp minus venue observation timestamp from the packaged sequence. Operational cause is mixed/indeterminate from retained evidence.",
+    "peak_scan_timestamp": "2026-07-21T08:55:48.911654Z"
+  },
+  "venue_table": [
+    {
+      "acquisition_regime_id": "binance.hybrid_book_reference.native_mark",
+      "acquisition_status": "definitive",
+      "canonical_timestamp": "2026-07-21T08:55:48.911654Z",
+      "canonical_value": "1939.95017829",
+      "consensus_input_value": "1939.95017829",
+      "disagreement_bps": "1.8",
+      "exclusion_reason": null,
+      "included": true,
+      "order_position": 1,
+      "source_observation_timestamp": "2026-07-21T08:50:26.977681+00:00",
+      "venue": "binance"
+    },
+    {
+      "acquisition_regime_id": "bybit.native_ws_ticker.markPrice",
+      "acquisition_status": "definitive",
+      "canonical_timestamp": "2026-07-21T08:55:48.911654Z",
+      "canonical_value": "1939.26",
+      "consensus_input_value": "1939.26",
+      "disagreement_bps": "1.8",
+      "exclusion_reason": null,
+      "included": true,
+      "order_position": 2,
+      "source_observation_timestamp": "2026-07-21T08:55:46.301903+00:00",
+      "venue": "bybit"
+    },
+    {
+      "acquisition_regime_id": "hyperliquid.ws_top_of_book.l1_only",
+      "acquisition_status": "definitive",
+      "canonical_timestamp": "2026-07-21T08:55:48.911654Z",
+      "canonical_value": "0",
+      "consensus_input_value": null,
+      "disagreement_bps": null,
+      "exclusion_reason": "missing_or_zero_mark_price",
+      "included": false,
+      "order_position": 3,
+      "source_observation_timestamp": "2026-07-21T08:55:48.911654+00:00",
+      "venue": "hyperliquid"
+    },
+    {
+      "acquisition_regime_id": "okx.ws_top_of_book.conditional_native_mark",
+      "acquisition_status": "definitive",
+      "canonical_timestamp": "2026-07-21T08:55:48.911654Z",
+      "canonical_value": "0",
+      "consensus_input_value": null,
+      "disagreement_bps": null,
+      "exclusion_reason": "missing_or_zero_mark_price",
+      "included": false,
+      "order_position": 4,
+      "source_observation_timestamp": "2026-07-21T08:55:43.716971+00:00",
+      "venue": "okx"
+    }
+  ],
+  "window_end": "2026-07-21T08:56:17.234571Z",
+  "window_start": "2026-07-21T08:51:28.079150Z",
+  "working_provenance_registry_version": "acquisition_provenance_working_registry_v1"
+}

@@ -1,0 +1,72 @@
+{
+  "artifact_format_version": "acquisition_regime_fixture_evidence_v1",
+  "assignments": [
+    {
+      "acquisition_regime": "binance.hybrid_book_reference.native_mark",
+      "collector_service_name": "synapse-collector-binance-ws",
+      "comparison_group": "native_mark_authoritative",
+      "current_production": true,
+      "evidence_status": "asserted",
+      "ingest_type": "hybrid_book_reference",
+      "instrument_scope": "*",
+      "regime_id": "binance.hybrid_book_reference.native_mark",
+      "transport": "hybrid",
+      "valid_from": "2026-07-14T15:57:00Z",
+      "valid_to": null,
+      "venue": "binance"
+    },
+    {
+      "acquisition_regime": "bybit.native_ws_ticker.markPrice",
+      "collector_service_name": "synapse-collector-bybit-ws",
+      "comparison_group": "native_mark_authoritative",
+      "current_production": true,
+      "evidence_status": "asserted",
+      "ingest_type": "ws_ticker",
+      "instrument_scope": "*",
+      "regime_id": "bybit.native_ws_ticker.markPrice",
+      "transport": "websocket",
+      "valid_from": "2026-07-14T20:00:00Z",
+      "valid_to": null,
+      "venue": "bybit"
+    },
+    {
+      "acquisition_regime": "hyperliquid.ws_top_of_book.l1_only",
+      "collector_service_name": "synapse-collector-hyperliquid-ws",
+      "comparison_group": "l1_midpoint_proxy",
+      "current_production": true,
+      "evidence_status": "asserted",
+      "ingest_type": "ws_top_of_book",
+      "instrument_scope": "*",
+      "regime_id": "hyperliquid.ws_top_of_book.l1_only",
+      "transport": "websocket",
+      "valid_from": "2026-04-16T23:35:16.846026Z",
+      "valid_to": null,
+      "venue": "hyperliquid"
+    },
+    {
+      "acquisition_regime": "okx.ws_top_of_book.conditional_native_mark",
+      "collector_service_name": "synapse-collector-okx-ws",
+      "comparison_group": "conditional_native_mark",
+      "current_production": true,
+      "evidence_status": "asserted",
+      "ingest_type": "ws_top_of_book",
+      "instrument_scope": "*",
+      "regime_id": "okx.ws_top_of_book.conditional_native_mark",
+      "transport": "websocket",
+      "valid_from": "2026-04-16T23:06:13.935233Z",
+      "valid_to": null,
+      "venue": "okx"
+    }
+  ],
+  "boundary_semantics": {
+    "mismatch_behavior": "advisory_warning_only",
+    "null_valid_from": "unbounded_past",
+    "null_valid_to": "open_ended",
+    "valid_from": "inclusive",
+    "valid_to": "inclusive"
+  },
+  "evidence_status": "asserted_fixture_coverage",
+  "registry_content_version": "2026-07-30.modern_fixtures.v1",
+  "registry_id": "acquisition_regime_fixture_registry_v1",
+  "scope_note": "Empirical acquisition-regime assignments required only to reproduce the committed modern public fixtures. This is package-pinned asserted evidence, not a live operational registry and not a universal methodology freeze."
+}

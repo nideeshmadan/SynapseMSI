@@ -1,0 +1,68 @@
+{
+  "acquisition_regime_context": {
+    "acquisition_regime_id": "unknown.insufficient_provenance",
+    "assignment_evidence": [
+      "episode_identity"
+    ],
+    "assignment_method": "unknown",
+    "assignment_status": "unknown",
+    "assignment_warnings": [
+      "unresolved_acquisition_rows=1; fail-closed for claims relying on them"
+    ],
+    "comparison_group": "unknown",
+    "field_semantics_version": "field_semantics_v2026_07",
+    "known_limitations": [
+      "insufficient row-level acquisition metadata"
+    ],
+    "linked_regime_ids": [
+      "unknown.insufficient_provenance"
+    ],
+    "mark_evidence_summary": [],
+    "methodology_version": "acquisition_regime_v2026_07",
+    "primary_regime_id": null,
+    "row_assignment_count": 1,
+    "spans_multiple_regimes": false,
+    "unknown_row_count": 1,
+    "unresolved_reason": "missing_snapshot_to_raw_lineage"
+  },
+  "comparability_eligibility": "excluded_fail_closed",
+  "comparability_reason_code": "unknown_assignment",
+  "comparability_reason_detail": {
+    "raw": {
+      "acquisition_regime_id": "unknown.insufficient_provenance",
+      "assignment_method": "unknown",
+      "assignment_status": "unknown",
+      "comparison_group": "unknown",
+      "linkage_method": "episode_sidecar_aggregation",
+      "linkage_status": "insufficient_raw_lineage",
+      "linked_regime_ids": [
+        "unknown.insufficient_provenance"
+      ],
+      "primary_regime_id": null,
+      "schema_version": "acquisition_regime_investigation_sidecar_v1",
+      "spans_multiple_regimes": false,
+      "unresolved_reason": "missing_snapshot_to_raw_lineage",
+      "unresolved_reason_detail": null
+    },
+    "resolved_regime_ids": []
+  },
+  "comparison_scope": "artifact",
+  "content_hash": "a994f493edbc6192a326bac5edd100f25ad209c3650bb68abfe012350935505d",
+  "episode_sidecar_refs": [
+    {
+      "content_hash": "0de561c2bfbf9613cc918c564270fa25ddb946a4aec6a368e0921fe1105b2605",
+      "episode_id": "op_consensus_000042",
+      "linkage_status": "insufficient_raw_lineage"
+    }
+  ],
+  "generated_at": "2026-07-22T16:00:00.000000Z",
+  "generator_version": "acquisition_regime_linkage_v2026_07",
+  "investigation_id": "72005bfeebb0112dbd61d634",
+  "linkage_method": "episode_sidecar_aggregation",
+  "linkage_status": "insufficient_raw_lineage",
+  "linked_episode_ids": [
+    "op_consensus_000042"
+  ],
+  "schema_version": "acquisition_regime_investigation_sidecar_v1",
+  "source_investigation_identity_version": "investigation_identity_v1"
+}

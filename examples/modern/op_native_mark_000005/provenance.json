@@ -1,0 +1,1047 @@
+{
+  "acquisition_regime_context": {
+    "acquisition_regime_id": "binance.hybrid_book_reference.native_mark",
+    "assignment_evidence": [
+      "classifier_label",
+      "collector_service_name",
+      "ingest_type",
+      "payload",
+      "transport",
+      "venue"
+    ],
+    "assignment_method": "row_metadata_with_payload",
+    "assignment_status": "provisional",
+    "assignment_warnings": [
+      "multi_regime_no_semantic_primary; legacy acquisition_regime_id anchor=binance.hybrid_book_reference.native_mark",
+      "comparability_eligibility=comparable_after_partition"
+    ],
+    "comparison_group": "mixed",
+    "cross_regime_compatibility": {
+      "field_levels": {
+        "ask": "partially_comparable",
+        "bid": "partially_comparable",
+        "collector_timing": "partially_comparable",
+        "freshness": "partially_comparable",
+        "funding": "not_comparable",
+        "mark_price": "not_comparable",
+        "open_interest": "not_comparable",
+        "provenance": "partially_comparable",
+        "spread": "partially_comparable",
+        "staleness": "partially_comparable",
+        "venue_timing": "partially_comparable"
+      },
+      "overall": "unknown",
+      "pairs": [
+        {
+          "fields": [
+            {
+              "field": "mark_price",
+              "level": "fully_comparable",
+              "reason": "both regimes treat native mark as authoritative",
+              "reason_code": "identical_acquisition_semantics"
+            },
+            {
+              "field": "funding",
+              "level": "partially_comparable",
+              "reason": "funding coverage and cadence may differ by venue path",
+              "reason_code": "same_economic_concept_different_sampling_path"
+            },
+            {
+              "field": "open_interest",
+              "level": "partially_comparable",
+              "reason": "open interest may be absent or separately polled",
+              "reason_code": "same_economic_concept_different_sampling_path"
+            },
+            {
+              "field": "bid",
+              "level": "partially_comparable",
+              "reason": "book path differs (hybrid bookTicker vs native ticker) without proven identical freshness",
+              "reason_code": "same_economic_concept_different_sampling_path"
+            },
+            {
+              "field": "ask",
+              "level": "partially_comparable",
+              "reason": "book path differs without proven identical freshness",
+              "reason_code": "same_economic_concept_different_sampling_path"
+            },
+            {
+              "field": "spread",
+              "level": "partially_comparable",
+              "reason": "spread inherits unproven cross-venue book freshness equivalence",
+              "reason_code": "same_economic_concept_different_sampling_path"
+            },
+            {
+              "field": "freshness",
+              "level": "partially_comparable",
+              "reason": "freshness gates and clocks are not proven identical across regimes",
+              "reason_code": "changed_freshness_semantics"
+            },
+            {
+              "field": "staleness",
+              "level": "partially_comparable",
+              "reason": "staleness classification depends on acquisition path and clocks",
+              "reason_code": "changed_freshness_semantics"
+            },
+            {
+              "field": "provenance",
+              "level": "partially_comparable",
+              "reason": "provenance attachment path may differ even under the same policy pin",
+              "reason_code": "same_economic_concept_different_sampling_path"
+            },
+            {
+              "field": "collector_timing",
+              "level": "partially_comparable",
+              "reason": "collector_observed_at semantics may differ by collector topology",
+              "reason_code": "changed_timestamp_semantics"
+            },
+            {
+              "field": "venue_timing",
+              "level": "partially_comparable",
+              "reason": "venue_event_time population and carry-forward differ by path",
+              "reason_code": "changed_timestamp_semantics"
+            }
+          ],
+          "overall": "partially_comparable",
+          "regime_a": "binance.hybrid_book_reference.native_mark",
+          "regime_b": "bybit.native_ws_ticker.markPrice"
+        },
+        {
+          "fields": [
+            {
+              "field": "mark_price",
+              "level": "not_comparable",
+              "reason": "native authoritative mark vs midpoint-proxy mark",
+              "reason_code": "changed_field_authority"
+            },
+            {
+              "field": "funding",
+              "level": "partially_comparable",
+              "reason": "funding may be present on only one path",
+              "reason_code": "same_economic_concept_different_sampling_path"
+            },
+            {
+              "field": "open_interest",
+              "level": "not_comparable",
+              "reason": "open interest typically unavailable on L1 midpoint-proxy path",
+              "reason_code": "field_unavailable"
+            },
+            {
+              "field": "bid",
+              "level": "partially_comparable",
+              "reason": "economic bid concept matches; acquisition freshness unproven across groups",
+              "reason_code": "same_economic_concept_different_sampling_path"
+            },
+            {
+              "field": "ask",
+              "level": "partially_comparable",
+              "reason": "economic ask concept matches; acquisition freshness unproven across groups",
+              "reason_code": "same_economic_concept_different_sampling_path"
+            },
+            {
+              "field": "spread",
+              "level": "partially_comparable",
+              "reason": "spread shares economic meaning; sampling/freshness unproven across groups",
+              "reason_code": "same_economic_concept_different_sampling_path"
+            },
+            {
+              "field": "freshness",
+              "level": "partially_comparable",
+              "reason": "freshness gates and clocks are not proven identical across regimes",
+              "reason_code": "changed_freshness_semantics"
+            },
+            {
+              "field": "staleness",
+              "level": "partially_comparable",
+              "reason": "staleness classification depends on acquisition path and clocks",
+              "reason_code": "changed_freshness_semantics"
+            },
+            {
+              "field": "provenance",
+              "level": "partially_comparable",
+              "reason": "provenance attachment path may differ even under the same policy pin",
+              "reason_code": "same_economic_concept_different_sampling_path"
+            },
+            {
+              "field": "collector_timing",
+              "level": "partially_comparable",
+              "reason": "collector_observed_at semantics may differ by collector topology",
+              "reason_code": "changed_timestamp_semantics"
+            },
+            {
+              "field": "venue_timing",
+              "level": "partially_comparable",
+              "reason": "venue_event_time population and carry-forward differ by path",
+              "reason_code": "changed_timestamp_semantics"
+            }
+          ],
+          "overall": "partially_comparable",
+          "regime_a": "binance.hybrid_book_reference.native_mark",
+          "regime_b": "hyperliquid.ws_top_of_book.l1_only"
+        },
+        {
+          "fields": [
+            {
+              "field": "mark_price",
+              "level": "unknown",
+              "reason": "no proven comparability rule for mark_price between native_mark_authoritative and conditional_native_mark",
+              "reason_code": "insufficient_evidence"
+            },
+            {
+              "field": "funding",
+              "level": "unknown",
+              "reason": "no proven comparability rule for funding between native_mark_authoritative and conditional_native_mark",
+              "reason_code": "insufficient_evidence"
+            },
+            {
+              "field": "open_interest",
+              "level": "unknown",
+              "reason": "no proven comparability rule for open_interest between native_mark_authoritative and conditional_native_mark",
+              "reason_code": "insufficient_evidence"
+            },
+            {
+              "field": "bid",
+              "level": "unknown",
+              "reason": "no proven comparability rule for bid between native_mark_authoritative and conditional_native_mark",
+              "reason_code": "insufficient_evidence"
+            },
+            {
+              "field": "ask",
+              "level": "unknown",
+              "reason": "no proven comparability rule for ask between native_mark_authoritative and conditional_native_mark",
+              "reason_code": "insufficient_evidence"
+            },
+            {
+              "field": "spread",
+              "level": "unknown",
+              "reason": "no proven comparability rule for spread between native_mark_authoritative and conditional_native_mark",
+              "reason_code": "insufficient_evidence"
+            },
+            {
+              "field": "freshness",
+              "level": "partially_comparable",
+              "reason": "freshness gates and clocks are not proven identical across regimes",
+              "reason_code": "changed_freshness_semantics"
+            },
+            {
+              "field": "staleness",
+              "level": "partially_comparable",
+              "reason": "staleness classification depends on acquisition path and clocks",
+              "reason_code": "changed_freshness_semantics"
+            },
+            {
+              "field": "provenance",
+              "level": "partially_comparable",
+              "reason": "provenance attachment path may differ even under the same policy pin",
+              "reason_code": "same_economic_concept_different_sampling_path"
+            },
+            {
+              "field": "collector_timing",
+              "level": "partially_comparable",
+              "reason": "collector_observed_at semantics may differ by collector topology",
+              "reason_code": "changed_timestamp_semantics"
+            },
+            {
+              "field": "venue_timing",
+              "level": "partially_comparable",
+              "reason": "venue_event_time population and carry-forward differ by path",
+              "reason_code": "changed_timestamp_semantics"
+            }
+          ],
+          "overall": "unknown",
+          "regime_a": "binance.hybrid_book_reference.native_mark",
+          "regime_b": "okx.ws_top_of_book.conditional_native_mark"
+        },
+        {
+          "fields": [
+            {
+              "field": "mark_price",
+              "level": "not_comparable",
+              "reason": "native authoritative mark vs midpoint-proxy mark",
+              "reason_code": "changed_field_authority"
+            },
+            {
+              "field": "funding",
+              "level": "partially_comparable",
+              "reason": "funding may be present on only one path",
+              "reason_code": "same_economic_concept_different_sampling_path"
+            },
+            {
+              "field": "open_interest",
+              "level": "not_comparable",
+              "reason": "open interest typically unavailable on L1 midpoint-proxy path",
+              "reason_code": "field_unavailable"
+            },
+            {
+              "field": "bid",
+              "level": "partially_comparable",
+              "reason": "economic bid concept matches; acquisition freshness unproven across groups",
+              "reason_code": "same_economic_concept_different_sampling_path"
+            },
+            {
+              "field": "ask",
+              "level": "partially_comparable",
+              "reason": "economic ask concept matches; acquisition freshness unproven across groups",
+              "reason_code": "same_economic_concept_different_sampling_path"
+            },
+            {
+              "field": "spread",
+              "level": "partially_comparable",
+              "reason": "spread shares economic meaning; sampling/freshness unproven across groups",
+              "reason_code": "same_economic_concept_different_sampling_path"
+            },
+            {
+              "field": "freshness",
+              "level": "partially_comparable",
+              "reason": "freshness gates and clocks are not proven identical across regimes",
+              "reason_code": "changed_freshness_semantics"
+            },
+            {
+              "field": "staleness",
+              "level": "partially_comparable",
+              "reason": "staleness classification depends on acquisition path and clocks",
+              "reason_code": "changed_freshness_semantics"
+            },
+            {
+              "field": "provenance",
+              "level": "partially_comparable",
+              "reason": "provenance attachment path may differ even under the same policy pin",
+              "reason_code": "same_economic_concept_different_sampling_path"
+            },
+            {
+              "field": "collector_timing",
+              "level": "partially_comparable",
+              "reason": "collector_observed_at semantics may differ by collector topology",
+              "reason_code": "changed_timestamp_semantics"
+            },
+            {
+              "field": "venue_timing",
+              "level": "partially_comparable",
+              "reason": "venue_event_time population and carry-forward differ by path",
+              "reason_code": "changed_timestamp_semantics"
+            }
+          ],
+          "overall": "partially_comparable",
+          "regime_a": "bybit.native_ws_ticker.markPrice",
+          "regime_b": "hyperliquid.ws_top_of_book.l1_only"
+        },
+        {
+          "fields": [
+            {
+              "field": "mark_price",
+              "level": "unknown",
+              "reason": "no proven comparability rule for mark_price between native_mark_authoritative and conditional_native_mark",
+              "reason_code": "insufficient_evidence"
+            },
+            {
+              "field": "funding",
+              "level": "unknown",
+              "reason": "no proven comparability rule for funding between native_mark_authoritative and conditional_native_mark",
+              "reason_code": "insufficient_evidence"
+            },
+            {
+              "field": "open_interest",
+              "level": "unknown",
+              "reason": "no proven comparability rule for open_interest between native_mark_authoritative and conditional_native_mark",
+              "reason_code": "insufficient_evidence"
+            },
+            {
+              "field": "bid",
+              "level": "unknown",
+              "reason": "no proven comparability rule for bid between native_mark_authoritative and conditional_native_mark",
+              "reason_code": "insufficient_evidence"
+            },
+            {
+              "field": "ask",
+              "level": "unknown",
+              "reason": "no proven comparability rule for ask between native_mark_authoritative and conditional_native_mark",
+              "reason_code": "insufficient_evidence"
+            },
+            {
+              "field": "spread",
+              "level": "unknown",
+              "reason": "no proven comparability rule for spread between native_mark_authoritative and conditional_native_mark",
+              "reason_code": "insufficient_evidence"
+            },
+            {
+              "field": "freshness",
+              "level": "partially_comparable",
+              "reason": "freshness gates and clocks are not proven identical across regimes",
+              "reason_code": "changed_freshness_semantics"
+            },
+            {
+              "field": "staleness",
+              "level": "partially_comparable",
+              "reason": "staleness classification depends on acquisition path and clocks",
+              "reason_code": "changed_freshness_semantics"
+            },
+            {
+              "field": "provenance",
+              "level": "partially_comparable",
+              "reason": "provenance attachment path may differ even under the same policy pin",
+              "reason_code": "same_economic_concept_different_sampling_path"
+            },
+            {
+              "field": "collector_timing",
+              "level": "partially_comparable",
+              "reason": "collector_observed_at semantics may differ by collector topology",
+              "reason_code": "changed_timestamp_semantics"
+            },
+            {
+              "field": "venue_timing",
+              "level": "partially_comparable",
+              "reason": "venue_event_time population and carry-forward differ by path",
+              "reason_code": "changed_timestamp_semantics"
+            }
+          ],
+          "overall": "unknown",
+          "regime_a": "bybit.native_ws_ticker.markPrice",
+          "regime_b": "okx.ws_top_of_book.conditional_native_mark"
+        },
+        {
+          "fields": [
+            {
+              "field": "mark_price",
+              "level": "partially_comparable",
+              "reason": "L1 midpoint/unavailable mark vs OKX conditional native mark",
+              "reason_code": "conditional_native_versus_derived"
+            },
+            {
+              "field": "funding",
+              "level": "not_comparable",
+              "reason": "funding generally unavailable on these WS top-of-book paths",
+              "reason_code": "field_unavailable"
+            },
+            {
+              "field": "open_interest",
+              "level": "not_comparable",
+              "reason": "open interest generally unavailable on these WS top-of-book paths",
+              "reason_code": "field_unavailable"
+            },
+            {
+              "field": "bid",
+              "level": "partially_comparable",
+              "reason": "bid concept matches; channel timing unproven identical",
+              "reason_code": "same_economic_concept_different_sampling_path"
+            },
+            {
+              "field": "ask",
+              "level": "partially_comparable",
+              "reason": "ask concept matches; channel timing unproven identical",
+              "reason_code": "same_economic_concept_different_sampling_path"
+            },
+            {
+              "field": "spread",
+              "level": "partially_comparable",
+              "reason": "spread concept matches; channel timing unproven identical",
+              "reason_code": "same_economic_concept_different_sampling_path"
+            },
+            {
+              "field": "freshness",
+              "level": "partially_comparable",
+              "reason": "freshness gates and clocks are not proven identical across regimes",
+              "reason_code": "changed_freshness_semantics"
+            },
+            {
+              "field": "staleness",
+              "level": "partially_comparable",
+              "reason": "staleness classification depends on acquisition path and clocks",
+              "reason_code": "changed_freshness_semantics"
+            },
+            {
+              "field": "provenance",
+              "level": "partially_comparable",
+              "reason": "provenance attachment path may differ even under the same policy pin",
+              "reason_code": "same_economic_concept_different_sampling_path"
+            },
+            {
+              "field": "collector_timing",
+              "level": "partially_comparable",
+              "reason": "collector_observed_at semantics may differ by collector topology",
+              "reason_code": "changed_timestamp_semantics"
+            },
+            {
+              "field": "venue_timing",
+              "level": "partially_comparable",
+              "reason": "venue_event_time population and carry-forward differ by path",
+              "reason_code": "changed_timestamp_semantics"
+            }
+          ],
+          "overall": "partially_comparable",
+          "regime_a": "hyperliquid.ws_top_of_book.l1_only",
+          "regime_b": "okx.ws_top_of_book.conditional_native_mark"
+        }
+      ]
+    },
+    "field_semantics_version": "field_semantics_v2026_07",
+    "known_limitations": [
+      "venue_event_time is min(book_ts, ref_ts)",
+      "book and reference freshness/skew gates apply",
+      "advisory exclusive boundary 2026-07-14T15:57:00Z; short REST+hybrid overlap precedes it",
+      "full collector_service_name from 2026-07-15T14:56:35.078484Z is not the transport cutover",
+      "venue_event_time from tickers envelope ts",
+      "first_target_method_observation 2026-07-14T01:22:39.120466Z is mixed REST+WS, not exclusive",
+      "advisory sole-authoritative boundary 2026-07-14T20:00:00Z after last REST 19:59:34.568212Z",
+      "full collector_service_name from 2026-07-15T14:51:28.478898Z is not the transport cutover",
+      "L1-only path; native mark unavailable",
+      "earliest retained WS observation 2026-04-16T23:35:16.846026Z",
+      "short retained-observation overlap with last REST (~3.1 s)",
+      "native mark is conditional on markPx presence per message",
+      "do not infer native mark from venue identity alone",
+      "earliest retained WS observation 2026-04-16T23:06:13.935233Z",
+      "retained-observation gap after last REST (~7.6 min); not dual-write overlap"
+    ],
+    "linked_regime_ids": [
+      "binance.hybrid_book_reference.native_mark",
+      "bybit.native_ws_ticker.markPrice",
+      "hyperliquid.ws_top_of_book.l1_only",
+      "okx.ws_top_of_book.conditional_native_mark"
+    ],
+    "mark_evidence_summary": [
+      "insufficient",
+      "unavailable"
+    ],
+    "methodology_version": "acquisition_regime_v2026_07",
+    "primary_regime_id": null,
+    "provenance_policy_version": "provenance_policy_v2026_07",
+    "row_assignment_count": 4,
+    "spans_multiple_regimes": true,
+    "unknown_row_count": 0,
+    "unresolved_reason": "multi_regime_investigation"
+  },
+  "comparability_eligibility": "comparable_after_partition",
+  "comparability_reason_code": "mixed_regime_requires_partition",
+  "comparability_reason_detail": {
+    "comparison_group": "mixed",
+    "raw": {
+      "acquisition_regime_id": "binance.hybrid_book_reference.native_mark",
+      "assignment_evidence": [
+        "classifier_label",
+        "collector_service_name",
+        "ingest_type",
+        "payload",
+        "payload_mark_evidence",
+        "transport",
+        "venue"
+      ],
+      "assignment_method": "row_metadata_with_payload",
+      "assignment_status": "provisional",
+      "assignment_warnings": [
+        "multi_regime_no_semantic_primary; legacy acquisition_regime_id anchor=binance.hybrid_book_reference.native_mark",
+        "comparability_eligibility=comparable_after_partition"
+      ],
+      "comparison_group": "mixed",
+      "cross_regime_compatibility": {
+        "field_levels": {
+          "ask": "partially_comparable",
+          "bid": "partially_comparable",
+          "collector_timing": "partially_comparable",
+          "freshness": "partially_comparable",
+          "funding": "not_comparable",
+          "mark_price": "not_comparable",
+          "open_interest": "not_comparable",
+          "provenance": "partially_comparable",
+          "spread": "partially_comparable",
+          "staleness": "partially_comparable",
+          "venue_timing": "partially_comparable"
+        },
+        "overall": "unknown",
+        "pairs": [
+          {
+            "fields": [
+              {
+                "field": "mark_price",
+                "level": "fully_comparable",
+                "reason": "both regimes treat native mark as authoritative",
+                "reason_code": "identical_acquisition_semantics"
+              },
+              {
+                "field": "funding",
+                "level": "partially_comparable",
+                "reason": "funding coverage and cadence may differ by venue path",
+                "reason_code": "same_economic_concept_different_sampling_path"
+              },
+              {
+                "field": "open_interest",
+                "level": "partially_comparable",
+                "reason": "open interest may be absent or separately polled",
+                "reason_code": "same_economic_concept_different_sampling_path"
+              },
+              {
+                "field": "bid",
+                "level": "partially_comparable",
+                "reason": "book path differs (hybrid bookTicker vs native ticker) without proven identical freshness",
+                "reason_code": "same_economic_concept_different_sampling_path"
+              },
+              {
+                "field": "ask",
+                "level": "partially_comparable",
+                "reason": "book path differs without proven identical freshness",
+                "reason_code": "same_economic_concept_different_sampling_path"
+              },
+              {
+                "field": "spread",
+                "level": "partially_comparable",
+                "reason": "spread inherits unproven cross-venue book freshness equivalence",
+                "reason_code": "same_economic_concept_different_sampling_path"
+              },
+              {
+                "field": "freshness",
+                "level": "partially_comparable",
+                "reason": "freshness gates and clocks are not proven identical across regimes",
+                "reason_code": "changed_freshness_semantics"
+              },
+              {
+                "field": "staleness",
+                "level": "partially_comparable",
+                "reason": "staleness classification depends on acquisition path and clocks",
+                "reason_code": "changed_freshness_semantics"
+              },
+              {
+                "field": "provenance",
+                "level": "partially_comparable",
+                "reason": "provenance attachment path may differ even under the same policy pin",
+                "reason_code": "same_economic_concept_different_sampling_path"
+              },
+              {
+                "field": "collector_timing",
+                "level": "partially_comparable",
+                "reason": "collector_observed_at semantics may differ by collector topology",
+                "reason_code": "changed_timestamp_semantics"
+              },
+              {
+                "field": "venue_timing",
+                "level": "partially_comparable",
+                "reason": "venue_event_time population and carry-forward differ by path",
+                "reason_code": "changed_timestamp_semantics"
+              }
+            ],
+            "overall": "partially_comparable",
+            "regime_a": "binance.hybrid_book_reference.native_mark",
+            "regime_b": "bybit.native_ws_ticker.markPrice"
+          },
+          {
+            "fields": [
+              {
+                "field": "mark_price",
+                "level": "not_comparable",
+                "reason": "native authoritative mark vs midpoint-proxy mark",
+                "reason_code": "changed_field_authority"
+              },
+              {
+                "field": "funding",
+                "level": "partially_comparable",
+                "reason": "funding may be present on only one path",
+                "reason_code": "same_economic_concept_different_sampling_path"
+              },
+              {
+                "field": "open_interest",
+                "level": "not_comparable",
+                "reason": "open interest typically unavailable on L1 midpoint-proxy path",
+                "reason_code": "field_unavailable"
+              },
+              {
+                "field": "bid",
+                "level": "partially_comparable",
+                "reason": "economic bid concept matches; acquisition freshness unproven across groups",
+                "reason_code": "same_economic_concept_different_sampling_path"
+              },
+              {
+                "field": "ask",
+                "level": "partially_comparable",
+                "reason": "economic ask concept matches; acquisition freshness unproven across groups",
+                "reason_code": "same_economic_concept_different_sampling_path"
+              },
+              {
+                "field": "spread",
+                "level": "partially_comparable",
+                "reason": "spread shares economic meaning; sampling/freshness unproven across groups",
+                "reason_code": "same_economic_concept_different_sampling_path"
+              },
+              {
+                "field": "freshness",
+                "level": "partially_comparable",
+                "reason": "freshness gates and clocks are not proven identical across regimes",
+                "reason_code": "changed_freshness_semantics"
+              },
+              {
+                "field": "staleness",
+                "level": "partially_comparable",
+                "reason": "staleness classification depends on acquisition path and clocks",
+                "reason_code": "changed_freshness_semantics"
+              },
+              {
+                "field": "provenance",
+                "level": "partially_comparable",
+                "reason": "provenance attachment path may differ even under the same policy pin",
+                "reason_code": "same_economic_concept_different_sampling_path"
+              },
+              {
+                "field": "collector_timing",
+                "level": "partially_comparable",
+                "reason": "collector_observed_at semantics may differ by collector topology",
+                "reason_code": "changed_timestamp_semantics"
+              },
+              {
+                "field": "venue_timing",
+                "level": "partially_comparable",
+                "reason": "venue_event_time population and carry-forward differ by path",
+                "reason_code": "changed_timestamp_semantics"
+              }
+            ],
+            "overall": "partially_comparable",
+            "regime_a": "binance.hybrid_book_reference.native_mark",
+            "regime_b": "hyperliquid.ws_top_of_book.l1_only"
+          },
+          {
+            "fields": [
+              {
+                "field": "mark_price",
+                "level": "unknown",
+                "reason": "no proven comparability rule for mark_price between native_mark_authoritative and conditional_native_mark",
+                "reason_code": "insufficient_evidence"
+              },
+              {
+                "field": "funding",
+                "level": "unknown",
+                "reason": "no proven comparability rule for funding between native_mark_authoritative and conditional_native_mark",
+                "reason_code": "insufficient_evidence"
+              },
+              {
+                "field": "open_interest",
+                "level": "unknown",
+                "reason": "no proven comparability rule for open_interest between native_mark_authoritative and conditional_native_mark",
+                "reason_code": "insufficient_evidence"
+              },
+              {
+                "field": "bid",
+                "level": "unknown",
+                "reason": "no proven comparability rule for bid between native_mark_authoritative and conditional_native_mark",
+                "reason_code": "insufficient_evidence"
+              },
+              {
+                "field": "ask",
+                "level": "unknown",
+                "reason": "no proven comparability rule for ask between native_mark_authoritative and conditional_native_mark",
+                "reason_code": "insufficient_evidence"
+              },
+              {
+                "field": "spread",
+                "level": "unknown",
+                "reason": "no proven comparability rule for spread between native_mark_authoritative and conditional_native_mark",
+                "reason_code": "insufficient_evidence"
+              },
+              {
+                "field": "freshness",
+                "level": "partially_comparable",
+                "reason": "freshness gates and clocks are not proven identical across regimes",
+                "reason_code": "changed_freshness_semantics"
+              },
+              {
+                "field": "staleness",
+                "level": "partially_comparable",
+                "reason": "staleness classification depends on acquisition path and clocks",
+                "reason_code": "changed_freshness_semantics"
+              },
+              {
+                "field": "provenance",
+                "level": "partially_comparable",
+                "reason": "provenance attachment path may differ even under the same policy pin",
+                "reason_code": "same_economic_concept_different_sampling_path"
+              },
+              {
+                "field": "collector_timing",
+                "level": "partially_comparable",
+                "reason": "collector_observed_at semantics may differ by collector topology",
+                "reason_code": "changed_timestamp_semantics"
+              },
+              {
+                "field": "venue_timing",
+                "level": "partially_comparable",
+                "reason": "venue_event_time population and carry-forward differ by path",
+                "reason_code": "changed_timestamp_semantics"
+              }
+            ],
+            "overall": "unknown",
+            "regime_a": "binance.hybrid_book_reference.native_mark",
+            "regime_b": "okx.ws_top_of_book.conditional_native_mark"
+          },
+          {
+            "fields": [
+              {
+                "field": "mark_price",
+                "level": "not_comparable",
+                "reason": "native authoritative mark vs midpoint-proxy mark",
+                "reason_code": "changed_field_authority"
+              },
+              {
+                "field": "funding",
+                "level": "partially_comparable",
+                "reason": "funding may be present on only one path",
+                "reason_code": "same_economic_concept_different_sampling_path"
+              },
+              {
+                "field": "open_interest",
+                "level": "not_comparable",
+                "reason": "open interest typically unavailable on L1 midpoint-proxy path",
+                "reason_code": "field_unavailable"
+              },
+              {
+                "field": "bid",
+                "level": "partially_comparable",
+                "reason": "economic bid concept matches; acquisition freshness unproven across groups",
+                "reason_code": "same_economic_concept_different_sampling_path"
+              },
+              {
+                "field": "ask",
+                "level": "partially_comparable",
+                "reason": "economic ask concept matches; acquisition freshness unproven across groups",
+                "reason_code": "same_economic_concept_different_sampling_path"
+              },
+              {
+                "field": "spread",
+                "level": "partially_comparable",
+                "reason": "spread shares economic meaning; sampling/freshness unproven across groups",
+                "reason_code": "same_economic_concept_different_sampling_path"
+              },
+              {
+                "field": "freshness",
+                "level": "partially_comparable",
+                "reason": "freshness gates and clocks are not proven identical across regimes",
+                "reason_code": "changed_freshness_semantics"
+              },
+              {
+                "field": "staleness",
+                "level": "partially_comparable",
+                "reason": "staleness classification depends on acquisition path and clocks",
+                "reason_code": "changed_freshness_semantics"
+              },
+              {
+                "field": "provenance",
+                "level": "partially_comparable",
+                "reason": "provenance attachment path may differ even under the same policy pin",
+                "reason_code": "same_economic_concept_different_sampling_path"
+              },
+              {
+                "field": "collector_timing",
+                "level": "partially_comparable",
+                "reason": "collector_observed_at semantics may differ by collector topology",
+                "reason_code": "changed_timestamp_semantics"
+              },
+              {
+                "field": "venue_timing",
+                "level": "partially_comparable",
+                "reason": "venue_event_time population and carry-forward differ by path",
+                "reason_code": "changed_timestamp_semantics"
+              }
+            ],
+            "overall": "partially_comparable",
+            "regime_a": "bybit.native_ws_ticker.markPrice",
+            "regime_b": "hyperliquid.ws_top_of_book.l1_only"
+          },
+          {
+            "fields": [
+              {
+                "field": "mark_price",
+                "level": "unknown",
+                "reason": "no proven comparability rule for mark_price between native_mark_authoritative and conditional_native_mark",
+                "reason_code": "insufficient_evidence"
+              },
+              {
+                "field": "funding",
+                "level": "unknown",
+                "reason": "no proven comparability rule for funding between native_mark_authoritative and conditional_native_mark",
+                "reason_code": "insufficient_evidence"
+              },
+              {
+                "field": "open_interest",
+                "level": "unknown",
+                "reason": "no proven comparability rule for open_interest between native_mark_authoritative and conditional_native_mark",
+                "reason_code": "insufficient_evidence"
+              },
+              {
+                "field": "bid",
+                "level": "unknown",
+                "reason": "no proven comparability rule for bid between native_mark_authoritative and conditional_native_mark",
+                "reason_code": "insufficient_evidence"
+              },
+              {
+                "field": "ask",
+                "level": "unknown",
+                "reason": "no proven comparability rule for ask between native_mark_authoritative and conditional_native_mark",
+                "reason_code": "insufficient_evidence"
+              },
+              {
+                "field": "spread",
+                "level": "unknown",
+                "reason": "no proven comparability rule for spread between native_mark_authoritative and conditional_native_mark",
+                "reason_code": "insufficient_evidence"
+              },
+              {
+                "field": "freshness",
+                "level": "partially_comparable",
+                "reason": "freshness gates and clocks are not proven identical across regimes",
+                "reason_code": "changed_freshness_semantics"
+              },
+              {
+                "field": "staleness",
+                "level": "partially_comparable",
+                "reason": "staleness classification depends on acquisition path and clocks",
+                "reason_code": "changed_freshness_semantics"
+              },
+              {
+                "field": "provenance",
+                "level": "partially_comparable",
+                "reason": "provenance attachment path may differ even under the same policy pin",
+                "reason_code": "same_economic_concept_different_sampling_path"
+              },
+              {
+                "field": "collector_timing",
+                "level": "partially_comparable",
+                "reason": "collector_observed_at semantics may differ by collector topology",
+                "reason_code": "changed_timestamp_semantics"
+              },
+              {
+                "field": "venue_timing",
+                "level": "partially_comparable",
+                "reason": "venue_event_time population and carry-forward differ by path",
+                "reason_code": "changed_timestamp_semantics"
+              }
+            ],
+            "overall": "unknown",
+            "regime_a": "bybit.native_ws_ticker.markPrice",
+            "regime_b": "okx.ws_top_of_book.conditional_native_mark"
+          },
+          {
+            "fields": [
+              {
+                "field": "mark_price",
+                "level": "partially_comparable",
+                "reason": "L1 midpoint/unavailable mark vs OKX conditional native mark",
+                "reason_code": "conditional_native_versus_derived"
+              },
+              {
+                "field": "funding",
+                "level": "not_comparable",
+                "reason": "funding generally unavailable on these WS top-of-book paths",
+                "reason_code": "field_unavailable"
+              },
+              {
+                "field": "open_interest",
+                "level": "not_comparable",
+                "reason": "open interest generally unavailable on these WS top-of-book paths",
+                "reason_code": "field_unavailable"
+              },
+              {
+                "field": "bid",
+                "level": "partially_comparable",
+                "reason": "bid concept matches; channel timing unproven identical",
+                "reason_code": "same_economic_concept_different_sampling_path"
+              },
+              {
+                "field": "ask",
+                "level": "partially_comparable",
+                "reason": "ask concept matches; channel timing unproven identical",
+                "reason_code": "same_economic_concept_different_sampling_path"
+              },
+              {
+                "field": "spread",
+                "level": "partially_comparable",
+                "reason": "spread concept matches; channel timing unproven identical",
+                "reason_code": "same_economic_concept_different_sampling_path"
+              },
+              {
+                "field": "freshness",
+                "level": "partially_comparable",
+                "reason": "freshness gates and clocks are not proven identical across regimes",
+                "reason_code": "changed_freshness_semantics"
+              },
+              {
+                "field": "staleness",
+                "level": "partially_comparable",
+                "reason": "staleness classification depends on acquisition path and clocks",
+                "reason_code": "changed_freshness_semantics"
+              },
+              {
+                "field": "provenance",
+                "level": "partially_comparable",
+                "reason": "provenance attachment path may differ even under the same policy pin",
+                "reason_code": "same_economic_concept_different_sampling_path"
+              },
+              {
+                "field": "collector_timing",
+                "level": "partially_comparable",
+                "reason": "collector_observed_at semantics may differ by collector topology",
+                "reason_code": "changed_timestamp_semantics"
+              },
+              {
+                "field": "venue_timing",
+                "level": "partially_comparable",
+                "reason": "venue_event_time population and carry-forward differ by path",
+                "reason_code": "changed_timestamp_semantics"
+              }
+            ],
+            "overall": "partially_comparable",
+            "regime_a": "hyperliquid.ws_top_of_book.l1_only",
+            "regime_b": "okx.ws_top_of_book.conditional_native_mark"
+          }
+        ]
+      },
+      "field_semantics_version": "field_semantics_v2026_07",
+      "known_limitations": [
+        "venue_event_time is min(book_ts, ref_ts)",
+        "book and reference freshness/skew gates apply",
+        "advisory exclusive boundary 2026-07-14T15:57:00Z; short REST+hybrid overlap precedes it",
+        "full collector_service_name from 2026-07-15T14:56:35.078484Z is not the transport cutover",
+        "venue_event_time from tickers envelope ts",
+        "first_target_method_observation 2026-07-14T01:22:39.120466Z is mixed REST+WS, not exclusive",
+        "advisory sole-authoritative boundary 2026-07-14T20:00:00Z after last REST 19:59:34.568212Z",
+        "full collector_service_name from 2026-07-15T14:51:28.478898Z is not the transport cutover",
+        "L1-only path; native mark unavailable",
+        "earliest retained WS observation 2026-04-16T23:35:16.846026Z",
+        "short retained-observation overlap with last REST (~3.1 s)",
+        "native mark is conditional on markPx presence per message",
+        "do not infer native mark from venue identity alone",
+        "earliest retained WS observation 2026-04-16T23:06:13.935233Z",
+        "retained-observation gap after last REST (~7.6 min); not dual-write overlap"
+      ],
+      "linkage_method": "episode_sidecar_aggregation",
+      "linkage_status": "derived_from_preserved_lineage",
+      "linked_regime_ids": [
+        "binance.hybrid_book_reference.native_mark",
+        "bybit.native_ws_ticker.markPrice",
+        "hyperliquid.ws_top_of_book.l1_only",
+        "okx.ws_top_of_book.conditional_native_mark"
+      ],
+      "mark_evidence_summary": [
+        "insufficient",
+        "unavailable"
+      ],
+      "methodology_version": "acquisition_regime_v2026_07",
+      "primary_regime_id": null,
+      "provenance_policy_version": "provenance_policy_v2026_07",
+      "row_assignment_count": 4,
+      "schema_version": "acquisition_regime_investigation_sidecar_v1",
+      "spans_multiple_regimes": true,
+      "unknown_row_count": 0,
+      "unresolved_reason": "multi_regime_investigation"
+    },
+    "resolved_regime_ids": [
+      "binance.hybrid_book_reference.native_mark",
+      "bybit.native_ws_ticker.markPrice",
+      "hyperliquid.ws_top_of_book.l1_only",
+      "okx.ws_top_of_book.conditional_native_mark"
+    ]
+  },
+  "comparison_scope": "artifact",
+  "content_hash": "5488a47f2ce331003d0fc8b52d55a5f304ccd1b408a2077d0c40222b981ed6b4",
+  "generated_at": "2026-07-27T00:00:00.000000Z",
+  "generator_version": "acquisition_regime_linkage_v2026_07",
+  "investigation_id": "6b4444214bf6d9fff3c43ece",
+  "linkage_method": "episode_sidecar_aggregation",
+  "linkage_status": "derived_from_preserved_lineage",
+  "linked_episode_ids": [
+    "op_native_mark_000005"
+  ],
+  "schema_version": "acquisition_regime_investigation_sidecar_v1",
+  "source_investigation_identity_version": "investigation_identity_v1"
+}
